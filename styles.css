@@ -66,6 +66,88 @@ h1 {
     font-style: italic;
 }
 
+.data-quality-details {
+    margin-top: 15px;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    padding: 0;
+}
+
+.data-quality-details summary {
+    padding: 12px 15px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #4CAF50;
+    background-color: #f9f9f9;
+    border-radius: 4px;
+    user-select: none;
+}
+
+.data-quality-details summary:hover {
+    background-color: #f0f0f0;
+}
+
+.data-quality-details[open] summary {
+    border-bottom: 1px solid #e0e0e0;
+    border-radius: 4px 4px 0 0;
+}
+
+.methodology-content {
+    padding: 15px;
+    font-size: 0.85rem;
+    line-height: 1.6;
+}
+
+.methodology-content h4 {
+    margin-top: 15px;
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+    color: #2c3e50;
+}
+
+.methodology-content h4:first-child {
+    margin-top: 0;
+}
+
+.methodology-content ul {
+    margin: 10px 0;
+    padding-left: 25px;
+}
+
+.methodology-content li {
+    margin-bottom: 8px;
+}
+
+.quality-real {
+    display: inline-block;
+    padding: 2px 8px;
+    background-color: #e8f5e9;
+    color: #2e7d32;
+    border-radius: 3px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.quality-modeled {
+    display: inline-block;
+    padding: 2px 8px;
+    background-color: #fff3e0;
+    color: #e65100;
+    border-radius: 3px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.methodology-footer {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #f0f0f0;
+    font-size: 0.8rem;
+    color: #888;
+    font-style: italic;
+}
+
 .main-content {
     display: grid;
     grid-template-columns: 350px 1fr;
