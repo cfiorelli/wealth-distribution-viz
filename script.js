@@ -193,16 +193,21 @@ function calculateOverlap(binMin, binMax, bracketMin, bracketMax) {
 
     // Special case: both bin and bracket are open-ended at the top
     if (binMax === null && bracketMax === null) {
-        // Both go to infinity; if they overlap at all, the bracket fully contains the bin's tail
-        return bracketMin >= binMin ? 1 : 0;
+        // Both go to infinity; full overlap of infinite bin with infinite bracket
+        return 1;
     }
 
     // Special case: bin is open-ended but bracket is not
+    // This happens when subdividing the millionaire+ bin with finite brackets
+    // We cannot accurately subdivide without more granular data, so we assign
+    // the entire bin to the FIRST bracket that starts within it, and 0 to others
     if (binMax === null && bracketMax !== null) {
-        // The bracket ends but the bin doesn't
-        // This can only happen if bracket is fully inside the bin
-        // Return 0 because we can't allocate an infinite bin to a finite bracket
-        return 0;
+        // Check if this bracket starts exactly at the bin's lower bound
+        if (bracketMin === binMin) {
+            return 1; // Assign entire infinite bin to the first bracket
+        } else {
+            return 0; // Assign nothing to subsequent brackets
+        }
     }
 
     // Normal case: calculate the fraction of the bin that overlaps with the bracket
