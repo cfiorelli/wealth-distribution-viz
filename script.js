@@ -178,7 +178,7 @@ function computeBrackets() {
 
 // Calculate overlap fraction between a bin and a bracket
 function calculateOverlap(binMin, binMax, bracketMin, bracketMax) {
-    // Handle open-ended bin (binMax === null means infinity)
+    // Handle open-ended ranges
     const effectiveBinMax = binMax === null ? Infinity : binMax;
     const effectiveBracketMax = bracketMax === null ? Infinity : bracketMax;
 
@@ -186,27 +186,26 @@ function calculateOverlap(binMin, binMax, bracketMin, bracketMax) {
     const overlapMin = Math.max(binMin, bracketMin);
     const overlapMax = Math.min(effectiveBinMax, effectiveBracketMax);
 
+    // No overlap if ranges don't intersect
     if (overlapMin >= overlapMax) {
-        return 0; // No overlap
+        return 0;
     }
 
-    // For open-ended ranges, use full overlap if there's any intersection
-    if (binMax === null) {
-        if (bracketMax === null) {
-            // Both open-ended: if bracket starts within bin, full overlap
-            return bracketMin >= binMin ? 1 : 0;
-        } else {
-            // Bin is open, bracket is not
-            // Fraction based on bracket range
-            if (bracketMin >= binMin) {
-                return 1;
-            } else {
-                return 0;
-            }
-        }
+    // Special case: both bin and bracket are open-ended at the top
+    if (binMax === null && bracketMax === null) {
+        // Both go to infinity; if they overlap at all, the bracket fully contains the bin's tail
+        return bracketMin >= binMin ? 1 : 0;
     }
 
-    // Calculate fraction of bin that overlaps with bracket
+    // Special case: bin is open-ended but bracket is not
+    if (binMax === null && bracketMax !== null) {
+        // The bracket ends but the bin doesn't
+        // This can only happen if bracket is fully inside the bin
+        // Return 0 because we can't allocate an infinite bin to a finite bracket
+        return 0;
+    }
+
+    // Normal case: calculate the fraction of the bin that overlaps with the bracket
     const binRange = effectiveBinMax - binMin;
     const overlapRange = overlapMax - overlapMin;
 
