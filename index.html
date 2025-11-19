@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Wealth Distribution Visualization</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Global Wealth Distribution Visualization</h1>
+            <p class="subtitle">
+                Explore how global wealth is distributed across custom wealth brackets.
+                Define your own brackets by minimum wealth per adult (USD) to see what percentage
+                of the world's adult population falls into each bracket and how much of total global wealth they hold.
+            </p>
+            <p class="data-source">
+                Data source: UBS Global Wealth Report 2023 (2022 data) |
+                Total adults: 3.77 billion | Total wealth: $454.4 trillion USD
+            </p>
+        </header>
+
+        <div class="main-content">
+            <aside class="controls-panel">
+                <h2>Wealth Brackets</h2>
+                <p class="instruction">Define minimum wealth thresholds (USD per adult):</p>
+
+                <div id="brackets-list" class="brackets-list">
+                    <!-- Bracket rows will be inserted here dynamically -->
+                </div>
+
+                <button id="add-bracket-btn" class="btn-add">+ Add Bracket</button>
+
+                <div class="axis-toggle">
+                    <label>
+                        <input type="radio" name="axis-mode" value="percentage" checked>
+                        Population %
+                    </label>
+                    <label>
+                        <input type="radio" name="axis-mode" value="absolute">
+                        Absolute Count
+                    </label>
+                </div>
+
+                <div class="summary-panel">
+                    <h3>Coverage Summary</h3>
+                    <div class="summary-grid">
+                        <div class="summary-item">
+                            <span class="label">Adults covered:</span>
+                            <span id="adults-covered" class="value">-</span>
+                        </div>
+                        <div class="summary-item">
+                            <span class="label">Adults not covered:</span>
+                            <span id="adults-not-covered" class="value">-</span>
+                        </div>
+                        <div class="summary-item">
+                            <span class="label">Wealth covered:</span>
+                            <span id="wealth-covered" class="value">-</span>
+                        </div>
+                        <div class="summary-item">
+                            <span class="label">Wealth not covered:</span>
+                            <span id="wealth-not-covered" class="value">-</span>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+            <main class="chart-section">
+                <div id="chart-container" class="chart-container">
+                    <canvas id="wealth-chart"></canvas>
+                </div>
+                <div id="no-data-message" class="no-data-message" style="display: none;">
+                    Define at least one minimum wealth threshold to see the chart.
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+<!--
+GITHUB PAGES DEPLOYMENT INSTRUCTIONS:
+
+1. Create a new GitHub repository:
+   - Go to https://github.com/new
+   - Name your repository (e.g., "wealth-distribution-viz")
+   - Choose "Public" visibility
+   - Click "Create repository"
+
+2. Add the files to your repository:
+   - Clone the repository locally: git clone https://github.com/YOUR-USERNAME/REPO-NAME.git
+   - Copy these files into the cloned directory:
+     * index.html
+     * styles.css
+     * script.js
+     * data/wealth_distribution.json
+   - Commit and push:
+     git add .
+     git commit -m "Initial commit: Global wealth distribution visualization"
+     git push origin main
+
+3. Enable GitHub Pages:
+   - Go to your repository on GitHub
+   - Click "Settings" tab
+   - Scroll to "Pages" in the left sidebar
+   - Under "Source", select "Deploy from a branch"
+   - Select branch "main" and folder "/ (root)"
+   - Click "Save"
+
+4. Access your site:
+   - After a few minutes, your site will be live at:
+     https://YOUR-USERNAME.github.io/REPO-NAME/
+   - GitHub will show the URL in the Pages settings
+
+Alternative: If you already have the files locally, you can also:
+- Use GitHub's web interface to create files directly
+- Drag and drop files into the repository
+- Use GitHub Desktop application for easier git management
+-->

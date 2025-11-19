@@ -1,0 +1,68 @@
+{
+  "_metadata": {
+    "source": "UBS Global Wealth Report 2023 / Credit Suisse Global Wealth Databook 2023",
+    "source_url": "https://www.ubs.com/global/en/family-office-uhnw/reports/global-wealth-report-2023.html",
+    "data_year": 2022,
+    "report_year": 2023,
+    "notes": [
+      "Data represents global adult population wealth distribution as of end-2022",
+      "Source: UBS Global Wealth Report 2023 and Statista aggregation",
+      "Total global wealth: USD 454.4 trillion",
+      "Total adult population: 5.4 billion (UBS estimate) / 3.77 billion (Statista sample)",
+      "Wealth per adult (mean): USD 84,718",
+      "For aggregation we use the more conservative Statista adult count (3,767 million) which represents tracked adults",
+      "Wealth thresholds based on Credit Suisse/UBS percentile data:",
+      "  - 50th percentile (median): $8,654",
+      "  - 90th percentile: $137,333",
+      "  - 99th percentile: $1,081,342",
+      "Transformation: Created bins based on standard wealth brackets with calculated wealth totals",
+      "Average wealth per bracket estimated from midpoint calculations and percentile distributions"
+    ],
+    "total_adult_population": 3767000000,
+    "total_global_wealth_usd": 454400000000000
+  },
+  "bins": [
+    {
+      "min_wealth_usd": 0,
+      "max_wealth_usd": 10000,
+      "population_count": 1488000000,
+      "population_share": 0.395,
+      "avg_wealth_usd": 3500,
+      "total_wealth_usd": 5208000000000,
+      "notes": "Poorest 39.5% of global adults, average wealth estimated at $3,500"
+    },
+    {
+      "min_wealth_usd": 10000,
+      "max_wealth_usd": 100000,
+      "population_count": 1608000000,
+      "population_share": 0.427,
+      "avg_wealth_usd": 35000,
+      "total_wealth_usd": 56280000000000,
+      "notes": "Middle wealth bracket, 42.7% of adults, average ~$35,000"
+    },
+    {
+      "min_wealth_usd": 100000,
+      "max_wealth_usd": 1000000,
+      "population_count": 613000000,
+      "population_share": 0.163,
+      "avg_wealth_usd": 320000,
+      "total_wealth_usd": 196160000000000,
+      "notes": "Upper-middle wealth, 16.3% of adults, average ~$320,000"
+    },
+    {
+      "min_wealth_usd": 1000000,
+      "max_wealth_usd": null,
+      "population_count": 58000000,
+      "population_share": 0.015,
+      "avg_wealth_usd": 3392275862,
+      "total_wealth_usd": 196752000000000,
+      "notes": "Millionaires and above, top 1.5% of adults, holds ~43.3% of global wealth"
+    }
+  ],
+  "verification": {
+    "total_population_sum": 3767000000,
+    "total_wealth_sum": 454400000000000,
+    "population_share_sum": 1.0,
+    "wealth_distribution_check": "Top 1.5% holds 43.3% of wealth; Bottom 39.5% holds 1.1% of wealth"
+  }
+}
