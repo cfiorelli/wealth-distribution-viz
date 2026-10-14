@@ -110,15 +110,13 @@ git clone https://github.com/cfiorelli/wealth-distribution-viz.git
 cd wealth-distribution-viz
 ```
 
-2. Open `index.html` in your browser:
+2. Serve the folder and open it in your browser (opening `index.html` directly from disk fails, because browsers block `fetch()` of the data file over `file://`):
 ```bash
-open index.html  # macOS
-# or
-start index.html  # Windows
-# or just double-click the file
+python3 -m http.server 8000
+# Then open http://localhost:8000
 ```
 
-That's it! No installation, no build step, no dependencies.
+No installation, no build step, no dependencies.
 
 ### Using the Visualization
 
