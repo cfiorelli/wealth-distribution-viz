@@ -7,10 +7,9 @@
  * Dataset: UBS Global Wealth Report 2023 (2022 data)
  * URL: https://www.ubs.com/global/en/family-office-uhnw/reports/global-wealth-report-2023.html
  *
- * Transformations applied:
- * - Aggregated Statista wealth bracket data (under $10k, $10k-$100k, $100k-$1M, over $1M)
- * - Calculated total wealth per bracket using population counts and estimated averages
- * - Normalized to percentage shares for both population and wealth
+ * Data: data/wealth_distribution.json (76 bins), produced by generate_enhanced_data.py.
+ * Bins below $1M are interpolated from aggregate brackets; bins above $1M are
+ * Pareto-modeled. Each bin carries a data-quality label. See README for method.
  */
 
 // Global state
